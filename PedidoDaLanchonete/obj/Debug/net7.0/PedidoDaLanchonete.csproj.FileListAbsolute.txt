@@ -1,0 +1,15 @@
+C:\Users\lucas.silva79\source\repos\PedidoDaLanchonete\PedidoDaLanchonete\bin\Debug\net7.0\PedidoDaLanchonete.exe
+C:\Users\lucas.silva79\source\repos\PedidoDaLanchonete\PedidoDaLanchonete\bin\Debug\net7.0\PedidoDaLanchonete.deps.json
+C:\Users\lucas.silva79\source\repos\PedidoDaLanchonete\PedidoDaLanchonete\bin\Debug\net7.0\PedidoDaLanchonete.runtimeconfig.json
+C:\Users\lucas.silva79\source\repos\PedidoDaLanchonete\PedidoDaLanchonete\bin\Debug\net7.0\PedidoDaLanchonete.dll
+C:\Users\lucas.silva79\source\repos\PedidoDaLanchonete\PedidoDaLanchonete\bin\Debug\net7.0\PedidoDaLanchonete.pdb
+C:\Users\lucas.silva79\source\repos\PedidoDaLanchonete\PedidoDaLanchonete\obj\Debug\net7.0\PedidoDaLanchonete.csproj.AssemblyReference.cache
+C:\Users\lucas.silva79\source\repos\PedidoDaLanchonete\PedidoDaLanchonete\obj\Debug\net7.0\PedidoDaLanchonete.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\lucas.silva79\source\repos\PedidoDaLanchonete\PedidoDaLanchonete\obj\Debug\net7.0\PedidoDaLanchonete.AssemblyInfoInputs.cache
+C:\Users\lucas.silva79\source\repos\PedidoDaLanchonete\PedidoDaLanchonete\obj\Debug\net7.0\PedidoDaLanchonete.AssemblyInfo.cs
+C:\Users\lucas.silva79\source\repos\PedidoDaLanchonete\PedidoDaLanchonete\obj\Debug\net7.0\PedidoDaLanchonete.csproj.CoreCompileInputs.cache
+C:\Users\lucas.silva79\source\repos\PedidoDaLanchonete\PedidoDaLanchonete\obj\Debug\net7.0\PedidoDaLanchonete.dll
+C:\Users\lucas.silva79\source\repos\PedidoDaLanchonete\PedidoDaLanchonete\obj\Debug\net7.0\refint\PedidoDaLanchonete.dll
+C:\Users\lucas.silva79\source\repos\PedidoDaLanchonete\PedidoDaLanchonete\obj\Debug\net7.0\PedidoDaLanchonete.pdb
+C:\Users\lucas.silva79\source\repos\PedidoDaLanchonete\PedidoDaLanchonete\obj\Debug\net7.0\PedidoDaLanchonete.genruntimeconfig.cache
+C:\Users\lucas.silva79\source\repos\PedidoDaLanchonete\PedidoDaLanchonete\obj\Debug\net7.0\ref\PedidoDaLanchonete.dll
