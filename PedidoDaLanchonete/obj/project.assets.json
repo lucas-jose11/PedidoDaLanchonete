@@ -8,23 +8,23 @@
     "net7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\lucas.silva79\\.nuget\\packages\\": {},
+    "C:\\Users\\lucas\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\lucas.silva79\\source\\repos\\PedidoDaLanchonete\\PedidoDaLanchonete\\PedidoDaLanchonete.csproj",
+      "projectUniqueName": "C:\\Users\\lucas\\source\\repos\\lucas-jose11\\PedidoDaLanchonete\\PedidoDaLanchonete\\PedidoDaLanchonete.csproj",
       "projectName": "PedidoDaLanchonete",
-      "projectPath": "C:\\Users\\lucas.silva79\\source\\repos\\PedidoDaLanchonete\\PedidoDaLanchonete\\PedidoDaLanchonete.csproj",
-      "packagesPath": "C:\\Users\\lucas.silva79\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\lucas.silva79\\source\\repos\\PedidoDaLanchonete\\PedidoDaLanchonete\\obj\\",
+      "projectPath": "C:\\Users\\lucas\\source\\repos\\lucas-jose11\\PedidoDaLanchonete\\PedidoDaLanchonete\\PedidoDaLanchonete.csproj",
+      "packagesPath": "C:\\Users\\lucas\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\lucas\\source\\repos\\lucas-jose11\\PedidoDaLanchonete\\PedidoDaLanchonete\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\lucas.silva79\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\lucas\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -45,7 +45,13 @@
         "warnAsError": [
           "NU1605"
         ]
-      }
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
+      },
+      "SdkAnalysisLevel": "9.0.100"
     },
     "frameworks": {
       "net7.0": {
@@ -66,7 +72,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.102\\RuntimeIdentifierGraph.json"
       }
     }
   }

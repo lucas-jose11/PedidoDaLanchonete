@@ -6,22 +6,20 @@ using System.Threading.Tasks;
 
 namespace PedidoDaLanchonete
 {
-    internal class Produto
+    public class Produto
     {
-        public void PrintCardapio()
+        public void PrintItensCardapio()
         {
-            Console.WriteLine($"{Nome} || R${Preco:0.00}."); //mascarar dados "mascara"? o :0.00
+            Console.WriteLine($"{Nome} || R${Preco}."); //mascarar dados "mascara"? o :0.00, tbm da certo Preco:C2, DECIMAL N PRECISA DISSO
         }
 
         public string Nome;
-        public double Preco;
+        public decimal Preco;
 
-
-
-
-
-        //Produto: representa um item do cardápio.Deve ter:
-        //  Nome do produto
-        //  Preço
+        public Produto(string nome, decimal preco)
+        {
+            Nome = nome;
+            Preco = preco;
+        }
     }
 }
