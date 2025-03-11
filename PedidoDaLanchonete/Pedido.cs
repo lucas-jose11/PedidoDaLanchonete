@@ -12,12 +12,10 @@ namespace PedidoDaLanchonete
         public int NumeroPedido { get; set; }
         public List<Produto> Produtos {  get; set; } // um pedido pode ter vários produtor
 
-
         // produtos -> lista de objetos
         //Produto -> variavel criada, não padrao
         //
         
-
         public Pedido(int numeroPedido)
         {
             NumeroPedido = numeroPedido; //define o number do pedido
@@ -35,4 +33,5 @@ namespace PedidoDaLanchonete
         }
 
     }
+
 }
