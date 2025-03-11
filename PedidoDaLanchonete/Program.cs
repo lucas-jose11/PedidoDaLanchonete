@@ -63,11 +63,11 @@
                 Console.WriteLine($"- {item.Nome} - R${item.Preco}");
             }
             Console.WriteLine("------------");
-            Console.WriteLine($"Total a pagar: R${pedido_1.SomaPedido(pedido_1.Produtos):F2}");
+            Console.WriteLine($"Total a pagar: R${pedido_1.SomaPedido(pedido_1.Produtos)}");// poderia colocar no final ali [...].Produtos):F2}"); mas n fez diferença
             Console.WriteLine("=======================");
 
 
-            Console.WriteLine("\n\n\n");
+            Console.WriteLine("\n\n");
 
             //------------------
             //-------------------
@@ -87,10 +87,8 @@
                 Console.WriteLine($"- {item.Nome} - R${item.Preco}");
             }
             Console.WriteLine("------------");
-            Console.WriteLine($"Total a pagar: R${pedido_2.SomaPedido(pedido_2.Produtos):F2}");
+            Console.WriteLine($"Total a pagar: R${pedido_2.SomaPedido(pedido_2.Produtos)}"); 
             Console.WriteLine("=======================");
-
-
 
 
         }
