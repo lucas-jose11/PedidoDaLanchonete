@@ -95,6 +95,7 @@
 
             Console.WriteLine("\nObrigado por vir em nossa lanchoente, volte sempre!");
 
+            //COMO DEIXAR ISSO AUTOMATICO, COMO DEIXAR O CLIENTE ESCOLHER OS PRODUTOS E O NUMEROPEDIDO AUMENTAR PRO PROXIMO PEDDIDO, SEM UM LIMITE 
         }
 
     }
