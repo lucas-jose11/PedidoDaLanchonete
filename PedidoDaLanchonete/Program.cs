@@ -9,7 +9,7 @@
             Console.WriteLine("Bem-vindo a Lanchonete Da Silva!");
             Console.WriteLine("----------------------------------");
 
-            Console.WriteLine("De uma olhada em nosso cardápio, digite os números dos itens que você deseja e digite 0 quando estiver acabado com o pedido.");
+            Console.WriteLine("Dê uma olhada em nosso cardápio, e por favor peça os quais você deseja!");
 
             List<Produto> cardapio = new List<Produto>();
 
@@ -63,11 +63,12 @@
                 Console.WriteLine($"- {item.Nome} - R${item.Preco}");
             }
             Console.WriteLine("------------");
-            Console.WriteLine($"Total a pagar: R${pedido_1.SomaPedido(pedido_1.Produtos):F2}");
+            Console.WriteLine($"Total a pagar: R${pedido_1.SomaPedido(pedido_1.Produtos)}");// poderia colocar no final ali [...].Produtos):F2}"); mas n fez diferença
             Console.WriteLine("=======================");
+            //------------------
+            //-------------------
 
-
-            Console.WriteLine("\n\n\n");
+            Console.WriteLine("\n\n");
 
             //------------------
             //-------------------
@@ -87,31 +88,30 @@
                 Console.WriteLine($"- {item.Nome} - R${item.Preco}");
             }
             Console.WriteLine("------------");
-            Console.WriteLine($"Total a pagar: R${pedido_2.SomaPedido(pedido_2.Produtos):F2}");
+            Console.WriteLine($"Total a pagar: R${pedido_2.SomaPedido(pedido_2.Produtos)}"); 
             Console.WriteLine("=======================");
+            //------------------
+            //-------------------
 
+            Console.WriteLine("\nObrigado por vir em nossa lanchoente, volte sempre!");
 
-
-
+            //COMO DEIXAR ISSO AUTOMATICO, COMO DEIXAR O CLIENTE ESCOLHER OS PRODUTOS E O NUMEROPEDIDO AUMENTAR PRO PROXIMO PEDDIDO, SEM UM LIMITE 
         }
 
     }
 
 }
 
-
-
-
-
-
 /*
  Sistema Básico de Pedidos para uma Lanchonete
 
-Contexto
+-Contexto
 
-Uma lanchonete deseja informatizar seus pedidos. Atualmente, os atendentes anotam manualmente os pedidos dos clientes, o que pode gerar erros e dificuldades na organização. Seu desafio é criar um sistema simples para gerenciar pedidos, utilizando classes e objetos.
+Uma lanchonete deseja informatizar seus pedidos. 
+Atualmente, os atendentes anotam manualmente os pedidos dos clientes, o que pode gerar erros e dificuldades na organização. 
+Seu desafio é criar um sistema simples para gerenciar pedidos, utilizando classes e objetos.
 
-Objetivo
+-Objetivo
 
 Criar classes que representem os elementos principais da lanchonete e permitir que pedidos sejam registrados e exibidos.
 
@@ -131,7 +131,8 @@ Requisitos do Exercício
       •     Crie pelo menos dois pedidos contendo diferentes produtos.
       •     Exiba os detalhes de cada pedido, incluindo os produtos e o total a pagar.
 
-Exemplo de Saída Esperada
+
+-Exemplo de Saída Esperada:
 
 Pedido #1
 Itens:
