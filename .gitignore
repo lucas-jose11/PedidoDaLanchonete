@@ -3,3 +3,24 @@
 ################################################################################
 
 /.vs
+/.vs/PedidoDaLanchonete/v17/.suo
+/.vs/PedidoDaLanchonete/DesignTimeBuild/.dtbcache.v2
+/PedidoDaLanchonete/bin/Debug/net7.0/PedidoDaLanchonete.dll
+/PedidoDaLanchonete/bin/Debug/net7.0/PedidoDaLanchonete.exe
+/PedidoDaLanchonete/bin/Debug/net7.0/PedidoDaLanchonete.pdb
+/PedidoDaLanchonete/obj/Debug/net7.0/ref/PedidoDaLanchonete.dll
+/PedidoDaLanchonete/obj/Debug/net7.0/refint/PedidoDaLanchonete.dll
+/PedidoDaLanchonete/obj/Debug/net7.0/apphost.exe
+/PedidoDaLanchonete/obj/Debug/net7.0/PedidoDaLanchonete.AssemblyInfo.cs
+/PedidoDaLanchonete/obj/Debug/net7.0/PedidoDaLanchonete.AssemblyInfoInputs.cache
+/PedidoDaLanchonete/obj/Debug/net7.0/PedidoDaLanchonete.assets.cache
+/PedidoDaLanchonete/obj/Debug/net7.0/PedidoDaLanchonete.csproj.CoreCompileInputs.cache
+/PedidoDaLanchonete/obj/Debug/net7.0/PedidoDaLanchonete.csproj.AssemblyReference.cache
+/PedidoDaLanchonete/obj/Debug/net7.0/PedidoDaLanchonete.GeneratedMSBuildEditorConfig.editorconfig
+/PedidoDaLanchonete/obj/Debug/net7.0/PedidoDaLanchonete.dll
+/PedidoDaLanchonete/obj/Debug/net7.0/PedidoDaLanchonete.genruntimeconfig.cache
+/PedidoDaLanchonete/obj/Debug/net7.0/PedidoDaLanchonete.pdb
+/PedidoDaLanchonete/obj/PedidoDaLanchonete.csproj.nuget.dgspec.json
+/PedidoDaLanchonete/obj/PedidoDaLanchonete.csproj.nuget.g.props
+/PedidoDaLanchonete/obj/project.assets.json
+/PedidoDaLanchonete/obj/project.nuget.cache

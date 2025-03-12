@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,7 +17,7 @@ namespace PedidoDaLanchonete
         //Produto -> variavel criada, não padrao
         //
         
-        public Pedido(int numeroPedido)
+        public Pedido(int numeroPedido, List<Produto> produtos)
         {
             NumeroPedido = numeroPedido; //define o number do pedido
             Produtos = new List<Produto>(); //inicializa o troço da lista de produtos
@@ -30,7 +31,12 @@ namespace PedidoDaLanchonete
                 totalPedido += item.Preco; // ai deu um tchugas e pegou apenas a propriedade preço do item, que é o nome que eu resolvi chaamr dentro do foreach, podia ser produto
             }
             return totalPedido;
+
+
         }
+
+        
+        
 
     }
 

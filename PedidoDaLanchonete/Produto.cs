@@ -9,16 +9,16 @@ namespace PedidoDaLanchonete
     public class Produto
     {
 
-        public string Nome;
-        public decimal Preco;
+        public long Id { get; set; }
 
-        public void PrintItensCardapio()
-        {
-            Console.WriteLine($"{Nome} || R${Preco}."); //mascarar dados "mascara"? o :0.00, tbm da certo Preco:C2, DECIMAL N PRECISA DISSO
-        }
+        public string Nome { get; set; }
 
-        public Produto(string nome, decimal preco)
+        public decimal Preco { get; set; }
+
+
+        public Produto(long id, string nome, decimal preco)
         {
+            Id = id;
             Nome = nome;
             Preco = preco;
         }
