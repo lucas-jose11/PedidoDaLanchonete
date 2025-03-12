@@ -20,23 +20,8 @@ namespace PedidoDaLanchonete
         public Pedido(int numeroPedido, List<Produto> produtos)
         {
             NumeroPedido = numeroPedido; //define o number do pedido
-            Produtos = new List<Produto>(); //inicializa o troço da lista de produtos
+            Produtos = produtos; //inicializa o troço da lista de produtos
         }
-
-        public decimal SomaPedido(IList<Produto> produtos)
-        {
-            decimal totalPedido = 0;
-            foreach (Produto item in produtos) 
-            {
-                totalPedido += item.Preco; // ai deu um tchugas e pegou apenas a propriedade preço do item, que é o nome que eu resolvi chaamr dentro do foreach, podia ser produto
-            }
-            return totalPedido;
-
-
-        }
-
-        
-        
 
     }
 

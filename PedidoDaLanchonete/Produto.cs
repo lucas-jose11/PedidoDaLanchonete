@@ -8,20 +8,17 @@ namespace PedidoDaLanchonete
 {
     public class Produto
     {
-
-        public long Id { get; set; }
-
+     
         public string Nome { get; set; }
 
         public decimal Preco { get; set; }
 
 
-        public Produto(long id, string nome, decimal preco)
-        {
-            Id = id;
-            Nome = nome;
-            Preco = preco;
-        }
+        //public Produto(string nome, decimal preco)
+        //{
+        //    Nome = nome;
+        //    Preco = preco;
+        //}
 
     }
 
