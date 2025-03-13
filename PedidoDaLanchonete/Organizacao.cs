@@ -1,17 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿//tread sleep(2000)´-> 2seg
 namespace PedidoDaLanchonete
 {
     public class Organizacao
     {
         public static List<Produto> cardapio = new List<Produto>();
+        Produto x_Burguer = new Produto("Hambúrguer", 15.99m);
+        Produto batatas_Fritas = new Produto("Batatas Fritas", 9.50m);
+        Produto refri_guarana = new Produto("Refigerante Guaraná 600ml", 8.45m);
 
         public static List<Pedido> listaDePedidos = new List<Pedido>();
-
 
         public static int MostrarMenu()
         {
@@ -27,16 +24,16 @@ namespace PedidoDaLanchonete
             {
 
                 case 1:
-                    CadastrarNoCardapio();
+                    CadastrarItemCardapio();
                     break;
 
                 case 2:
-                    PrintItensCardapio(cardapio);
+                    MostrarCardapio(); // funciona assim pois é uma propriedade na classe o cardapio e listadepedidos, ent da pra usar em td 
                     Console.ReadLine();
                     break;
 
                 case 3:
-                    CriarPedido();
+                    CadastrarPedido();
                     break;
 
                 case 4:
@@ -56,18 +53,18 @@ namespace PedidoDaLanchonete
             return op;
         }
 
-        public static void CadastrarNoCardapio()
+        public static void CadastrarItemCardapio()
         {
             Console.WriteLine("Escreva o nome do item.");
             string nomeItem = Console.ReadLine();
             Console.WriteLine("Escreva o preço dele, usando o padrão \"00,00\"");
             decimal preçoItem = decimal.Parse(Console.ReadLine());
 
-            Produto itemNoCardapio = new Produto { Nome = nomeItem, Preco = preçoItem };
+            Produto itemNoCardapio = new Produto(nomeItem, preçoItem);
             cardapio.Add(itemNoCardapio);
         }
 
-        public static void PrintItensCardapio(List<Produto> cardapio)
+        public static void MostrarCardapio()
         {
             for (int i = 0; i < cardapio.Count; i++)
             {
@@ -76,14 +73,14 @@ namespace PedidoDaLanchonete
             }
         }
 
-        public static void CriarPedido()
+        public static void CadastrarPedido()
         {
             List<Produto> carrinhoCompras = new List<Produto>();
 
             int opcaoEscolhida = -1;
             while (opcaoEscolhida != 0)
             {
-                PrintItensCardapio(cardapio);
+                MostrarCardapio();
                 Console.WriteLine("0- PARA TERMINAR PEDIDO");
                 Console.WriteLine("Escreva o número correspndete ao item que você deseja em seu pedido.");
 
@@ -102,7 +99,7 @@ namespace PedidoDaLanchonete
             }
 
             if (carrinhoCompras.Count > 0)
-            { 
+            {
                 int numeroPedido = listaDePedidos.Count + 1;
 
                 Pedido novoPedido = new Pedido(numeroPedido, carrinhoCompras);
@@ -116,8 +113,8 @@ namespace PedidoDaLanchonete
             //    Produtos = carrinhoCompras
             //};
             //listaDePedidos.Add(novoPedido);
-            
-            
+
+
             //Console.WriteLine("Pedido feito com sucesso!");
             //var variavel = cardapio.Select(p => p.Id == opcaoEscolhida);
             //if (variavel != null) //link expressions OU FAZ COM SWITCH CASE
@@ -140,15 +137,46 @@ namespace PedidoDaLanchonete
             //uma classe é um, singular, lista de produtos n vai estar na classe produto
         } //ENTENDER A PIRA QUE EU FIZ E DEU CERTO, PEDIR AJUDA PARA VER SE MELHORA/DEIXA IGUAL
 
-        public static void MostrarPedidos(List<Pedido> listaDePedidos)
+        public static void MostrarPedidos()
         {
-            Console.WriteLine($"Detalhes do pedido #{listaDePedidos.NumeroPedido}"); //ARRUMAR AQUI
-            foreach (var p in listaDePedidos)
+            try
             {
-                Produto produto = listaDePedidos[p];
-                Console.WriteLine($"{produto.Nome} || {produto.Preco}");
+                int opcaoEscolhida = -1;
+                while (opcaoEscolhida != 0)
+                {
+                    Console.WriteLine("Digite um número do pedido que deseja mostrar. Digite 0 PARA SAIR.");
+
+                    if (!int.TryParse(Console.ReadLine(), out opcaoEscolhida))
+                    {
+                        Console.WriteLine($"Entrada inválida");
+                        opcaoEscolhida = -1;
+                        continue; //vai pro prox laço repet
+                    }
+
+                    if (opcaoEscolhida == 0)
+                        break;
+
+                    var pedido = listaDePedidos.Where(p => p.NumeroPedido == opcaoEscolhida).FirstOrDefault();
+                    if (pedido == null)
+                    {
+                        Console.WriteLine("Digite um número de pedido válido.\n");
+                        Console.ReadLine();
+                        continue;
+                    }
+
+                    Console.WriteLine($"Detalhes do pedido #{pedido.NumeroPedido}");
+                    foreach (var p in pedido.Produtos)
+                    {
+                        Console.WriteLine($"Produto: {p.Nome} || Preço: {p.Preco}");
+                    }
+
+                    Console.WriteLine($"Total a pagar: {SomaTotal(pedido.Produtos)}");
+                }
             }
-            Console.WriteLine($"Total a pagar: {SomaTotal(listaDePedidos)}");
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
         }
 
         public static decimal SomaTotal(List<Produto> produtos)
@@ -160,6 +188,5 @@ namespace PedidoDaLanchonete
             }
             return totalPedido;
         }
-
     }
 }

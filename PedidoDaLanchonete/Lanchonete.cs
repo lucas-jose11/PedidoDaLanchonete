@@ -1,5 +1,4 @@
-﻿using Microsoft.VisualBasic.FileIO;
-using static PedidoDaLanchonete.Organizacao;
+﻿//using static PedidoDaLanchonete.Organizacao;
 
 namespace PedidoDaLanchonete
 {
@@ -15,7 +14,7 @@ namespace PedidoDaLanchonete
             int op = -1;
             while (op != 0) 
             {
-                op = Organizacao.MostrarMenu(); // só precisa disso se n tiver a linha 2 ali, com ela, pode só o Mostrarmenu();
+                op = Organizacao.MostrarMenu(); // só precisa disso se n tiver a linha 1 ali, com ela, pode só o Mostrarmenu();
             } 
             
             Console.WriteLine("\nObrigado por vir em nossa lanchonete, volte sempre!");

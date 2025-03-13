@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PedidoDaLanchonete
+﻿namespace PedidoDaLanchonete
 {
     public class Produto
     {
@@ -13,13 +7,11 @@ namespace PedidoDaLanchonete
 
         public decimal Preco { get; set; }
 
-
-        //public Produto(string nome, decimal preco)
-        //{
-        //    Nome = nome;
-        //    Preco = preco;
-        //}
-
+        public Produto(string nome, decimal preco)// com static n vai, pq?
+        {
+            Nome = nome;
+            Preco = preco;
+        }
     }
 
 }
