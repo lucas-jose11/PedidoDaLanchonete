@@ -9,7 +9,8 @@ namespace PedidoDaLanchonete
         {
 
             Console.WriteLine("Bem-vindo a Lanchonete Da Silva!");
-            Console.WriteLine("Escolha uma opção");
+            Console.WriteLine("--------------------------------");
+            Console.WriteLine("Escolha uma opção e digite ela abaixo:");
 
             int op = -1;
             while (op != 0) 

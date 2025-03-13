@@ -5,9 +5,9 @@
      
         public string Nome { get; set; }
 
-        public decimal Preco { get; set; }
+        public string Preco { get; set; }
 
-        public Produto(string nome, decimal preco)// com static n vai, pq?
+        public Produto(string nome, string preco)// com static n vai, pq?
         {
             Nome = nome;
             Preco = preco;

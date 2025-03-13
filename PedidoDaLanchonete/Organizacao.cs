@@ -3,20 +3,22 @@ namespace PedidoDaLanchonete
 {
     public class Organizacao
     {
-        public static List<Produto> cardapio = new List<Produto>();
-        Produto x_Burguer = new Produto("Hambúrguer", 15.99m);
-        Produto batatas_Fritas = new Produto("Batatas Fritas", 9.50m);
-        Produto refri_guarana = new Produto("Refigerante Guaraná 600ml", 8.45m);
+        public static List<Produto> cardapio = new List<Produto>
+        {
+            new Produto("Hambúrguer", "19,50"),
+            new Produto("Batatas Fritas", "9,50"),
+            new Produto("Refigerante Guaraná 600ml", "8,45"),
+        };
 
         public static List<Pedido> listaDePedidos = new List<Pedido>();
 
         public static int MostrarMenu()
         {
-            Console.WriteLine("1- Cadastrar produto no cardápio.");
-            Console.WriteLine("2- Mostrar cardápio atual.");
-            Console.WriteLine("3- Fazer o pedido.");
-            Console.WriteLine("4- Visualizar pedido.");
-            Console.WriteLine("0- PARA SAIR.");
+            Console.WriteLine("[1] - Cadastrar produto no cardápio.");
+            Console.WriteLine("[2] - Mostrar cardápio atual.");
+            Console.WriteLine("[3] - Fazer o pedido.");
+            Console.WriteLine("[4] - Visualizar pedido.");
+            Console.WriteLine("[0] - PARA SAIR.");
             int op = int.Parse(Console.ReadLine());
 
             Console.Clear();
@@ -55,12 +57,14 @@ namespace PedidoDaLanchonete
 
         public static void CadastrarItemCardapio()
         {
+
             Console.WriteLine("Escreva o nome do item.");
             string nomeItem = Console.ReadLine();
             Console.WriteLine("Escreva o preço dele, usando o padrão \"00,00\"");
             decimal preçoItem = decimal.Parse(Console.ReadLine());
+            string preçoItemFormatado = preçoItem.ToString("F2");
 
-            Produto itemNoCardapio = new Produto(nomeItem, preçoItem);
+            Produto itemNoCardapio = new Produto(nomeItem, preçoItemFormatado);
             cardapio.Add(itemNoCardapio);
         }
 
@@ -139,6 +143,21 @@ namespace PedidoDaLanchonete
 
         public static void MostrarPedidos()
         {
+
+            for (int i = 0; i < listaDePedidos.Count; i++)
+            {
+                Pedido pedidoAtual = listaDePedidos[i];
+                Console.WriteLine($"Detalhes do pedido #{pedidoAtual.NumeroPedido}");
+                foreach (Produto j in pedidoAtual.Produtos)
+                {
+                    Console.WriteLine($" Item: {j.Nome} || Preço: {j.Preco}");
+                }
+                Console.WriteLine($"Total do pedido: {SomaTotal(pedidoAtual.Produtos)}");
+            }
+
+
+
+
             try
             {
                 int opcaoEscolhida = -1;
@@ -184,7 +203,8 @@ namespace PedidoDaLanchonete
             decimal totalPedido = 0;
             foreach (Produto item in produtos)
             {
-                totalPedido += item.Preco; // ai deu um tchugas e pegou apenas a propriedade preço do item, que é o nome que eu resolvi chaamr dentro do foreach, podia ser produto
+                decimal precoFormatado = decimal.Parse(item.Preco);
+                totalPedido += precoFormatado; // ai deu um tchugas e pegou apenas a propriedade preço do item, que é o nome que eu resolvi chaamr dentro do foreach, podia ser produto
             }
             return totalPedido;
         }
