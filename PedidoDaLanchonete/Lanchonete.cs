@@ -14,16 +14,15 @@ namespace PedidoDaLanchonete
                 int op = -1;
                 while (op != 0)
                 {
-                    op = Organizacao.MostrarMenu(); // só precisa disso se n tiver a linha 1 ali, com ela, pode só o Mostrarmenu();
+                    op = Organizacao.MostrarMenu();
                 }
 
                 Console.WriteLine("Obrigado por vir em nossa lanchonete, volte sempre!");
 
             } catch (Exception e)
             {
-                Console.WriteLine("OCORREU UM ERRO");
+                Console.WriteLine($"OCORREU UM ERRO INESPERADO: {e.Message}");
             }
         }
     }
-
 }

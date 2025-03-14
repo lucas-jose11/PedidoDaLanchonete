@@ -13,5 +13,4 @@ namespace PedidoDaLanchonete
             Preco = preco;
         }
     }
-
 }

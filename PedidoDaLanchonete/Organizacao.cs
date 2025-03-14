@@ -1,6 +1,4 @@
 ﻿
-using System.Reflection.Metadata.Ecma335;
-
 namespace PedidoDaLanchonete
 {
     public class Organizacao
@@ -26,7 +24,6 @@ namespace PedidoDaLanchonete
 
                 int op;
                 op = int.Parse(Console.ReadLine());
-
 
                 Console.Clear();
                 switch (op)
@@ -68,13 +65,12 @@ namespace PedidoDaLanchonete
                 Console.WriteLine("========================================================================");
                 Console.WriteLine($"!!!!!Ocorreu um erro de formato: Formato inválido, digite um número!!!!");
                 Console.WriteLine("========================================================================");
-                return 5;
+                return 100;
             }
         }
 
         public static void CadastrarItemCardapio()
         {
-
             bool adicionouCardapio = false;
             while (!adicionouCardapio)
             {
@@ -88,12 +84,10 @@ namespace PedidoDaLanchonete
 
                     Console.WriteLine("Escreva o preço dele, usando o padrão \"00,00\"");
 
-
                     if (!decimal.TryParse(Console.ReadLine(), out decimal preçoItem))
                     {
                         throw new Exception("Preço inválido. Por favor, use o formato \"00,00\".\n-------------------------\n");
                     }
-
 
                     string preçoItemFormatado = preçoItem.ToString("F2");
 
@@ -109,7 +103,6 @@ namespace PedidoDaLanchonete
                     Console.WriteLine(e.Message);
                 }
             }
-
 
         }
 
@@ -137,7 +130,7 @@ namespace PedidoDaLanchonete
                     Console.WriteLine("====================================================");
                 }
 
-                if (carrinhoCompras.Count > 0 && opcaoEscolhida.ToString() != null)
+                if (carrinhoCompras.Count > 0 && opcaoEscolhida.ToString() != "-2" && opcaoEscolhida.ToString() != "-3")
                 {
                     Console.WriteLine("Item adicionado ao pedido com sucesso!");
                 }
@@ -153,7 +146,9 @@ namespace PedidoDaLanchonete
                     Console.WriteLine("==============================");
                     Console.WriteLine("!!!Escreva um número!!!");
                     Console.WriteLine("==============================");
-                    opcaoEscolhida = 5;
+                    Console.WriteLine("Aperte enter para continuar...");
+                    Console.ReadLine();
+                    opcaoEscolhida = -3;
                     Console.Clear();
                     continue;
                 }
@@ -163,8 +158,8 @@ namespace PedidoDaLanchonete
                     Thread.Sleep(1000);
                     Console.Clear();
                     break;
-                }
-
+                } 
+                
                 if (opcaoEscolhida >= 1 && opcaoEscolhida <= cardapio.Count)
                 {
                     int indice = opcaoEscolhida - 1;
@@ -173,10 +168,9 @@ namespace PedidoDaLanchonete
                 else
                     opcaoEscolhida = -2;
 
-
                 if (opcaoEscolhida != -2)
                 {
-                    Thread.Sleep(500);
+                    Thread.Sleep(300);
                     Console.WriteLine("Processando...");
                     Thread.Sleep(500);
                     Console.WriteLine("Adicionando ao carrinho...");
@@ -207,12 +201,12 @@ namespace PedidoDaLanchonete
             else if (carrinhoCompras.Count == 0)
             {
                 Console.WriteLine("===========================================");
-                Console.WriteLine("Nenhum pedido foi feito. Voltando ao menu...");
+                Console.WriteLine("Nenhum pedido foi feito. Voltando ao menu...\nEspere...");
                 Console.WriteLine("===========================================");
-                Thread.Sleep(1800);
+                Thread.Sleep(1500);
             }
-            Console.Clear();
 
+            Console.Clear();
         }
 
         public static void MostrarPedidos()
@@ -232,7 +226,7 @@ namespace PedidoDaLanchonete
                 Console.WriteLine("==================================");
                 Console.WriteLine("");
             }
-            Console.WriteLine("\nClique em qualquer para voltar ao menu.");
+            Console.WriteLine("\nClique em enter para voltar ao menu.");
             Console.ReadLine();
         }
 
@@ -247,5 +241,4 @@ namespace PedidoDaLanchonete
             return totalPedido;
         }
     }
-
 }
