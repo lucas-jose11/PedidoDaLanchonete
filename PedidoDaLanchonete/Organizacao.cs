@@ -1,4 +1,6 @@
 ﻿
+using System.Reflection.Metadata.Ecma335;
+
 namespace PedidoDaLanchonete
 {
     public class Organizacao
@@ -14,61 +16,101 @@ namespace PedidoDaLanchonete
 
         public static int MostrarMenu()
         {
-            Console.WriteLine("[1] - Cadastrar produto no cardápio.");
-            Console.WriteLine("[2] - Mostrar cardápio atual.");
-            Console.WriteLine("[3] - Fazer o pedido.");
-            Console.WriteLine("[4] - Visualizar pedido.");
-            Console.WriteLine("[0] - PARA SAIR.");
-            int op = int.Parse(Console.ReadLine());
-
-            Console.Clear();
-            switch (op)
+            try
             {
+                Console.WriteLine("[1] - Cadastrar produto no cardápio.");
+                Console.WriteLine("[2] - Mostrar cardápio atual.");
+                Console.WriteLine("[3] - Fazer o pedido.");
+                Console.WriteLine("[4] - Visualizar pedido.");
+                Console.WriteLine("[0] - PARA SAIR.");
 
-                case 1:
-                    CadastrarItemCardapio();
-                    break;
+                int op;
+                op = int.Parse(Console.ReadLine());
 
-                case 2:
-                    MostrarCardapio();
-                    Console.ReadLine();
-                    break;
 
-                case 3:
-                    CadastrarPedido();
-                    break;
+                Console.Clear();
+                switch (op)
+                {
 
-                case 4:
-                    MostrarPedidos();
-                    break;
+                    case 1:
+                        CadastrarItemCardapio();
+                        break;
 
-                case 0:
-                    break;
+                    case 2:
+                        MostrarCardapio();
+                        Console.ReadLine();
+                        break;
 
-                default:
-                    Console.WriteLine("Digite uma opção válida.");
-                    Console.WriteLine("Para voltar ao menu, digite qualquer tecla...");
-                    Console.ReadLine();
-                    break;
+                    case 3:
+                        CadastrarPedido();
+                        break;
+
+                    case 4:
+                        MostrarPedidos();
+                        break;
+
+                    case 0:
+                        break;
+
+                    default:
+                        Console.WriteLine("Digite uma opção válida.");
+                        Console.WriteLine("Para voltar ao menu, digite enter...");
+                        Console.ReadLine();
+                        break;
+                }
+                Console.Clear();
+
+                return op;
             }
-            Console.Clear();
-
-            return op;
+            catch (FormatException e)
+            {
+                Console.Clear();
+                Console.WriteLine("========================================================================");
+                Console.WriteLine($"!!!!!Ocorreu um erro de formato: Formato inválido, digite um número!!!!");
+                Console.WriteLine("========================================================================");
+                return 5;
+            }
         }
 
         public static void CadastrarItemCardapio()
         {
 
-            Console.WriteLine("Escreva o nome do item que deseja adicionar ao nosso cardápio.");
-            string nomeItem = Console.ReadLine();
-            Console.WriteLine("Escreva o preço dele, usando o padrão \"00,00\"");
-            decimal preçoItem = decimal.Parse(Console.ReadLine());
-            string preçoItemFormatado = preçoItem.ToString("F2");
+            bool adicionouCardapio = false;
+            while (!adicionouCardapio)
+            {
+                try
+                {
+                    Console.WriteLine("Escreva o nome do item que deseja adicionar ao nosso cardápio.");
+                    string nomeItem = Console.ReadLine();
 
-            Produto itemNoCardapio = new Produto(nomeItem, preçoItemFormatado);
-            cardapio.Add(itemNoCardapio);
+                    if (string.IsNullOrEmpty(nomeItem))
+                        throw new Exception("Escreva o nome do item, não deixe o campo nulo!\n-------------------------\n");
 
-            Console.WriteLine("Item cadastrado!");
+                    Console.WriteLine("Escreva o preço dele, usando o padrão \"00,00\"");
+
+
+                    if (!decimal.TryParse(Console.ReadLine(), out decimal preçoItem))
+                    {
+                        throw new Exception("Preço inválido. Por favor, use o formato \"00,00\".\n-------------------------\n");
+                    }
+
+
+                    string preçoItemFormatado = preçoItem.ToString("F2");
+
+                    Produto itemNoCardapio = new Produto(nomeItem, preçoItemFormatado);
+                    cardapio.Add(itemNoCardapio);
+
+                    adicionouCardapio = true;
+
+                    Console.WriteLine("Item cadastrado!");
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                }
+            }
+
+
         }
 
         public static void MostrarCardapio()
@@ -88,7 +130,14 @@ namespace PedidoDaLanchonete
             int opcaoEscolhida = -1;
             while (opcaoEscolhida != 0)
             {
-                if (carrinhoCompras.Count > 0)
+                if (opcaoEscolhida == -2)
+                {
+                    Console.WriteLine("====================================================");
+                    Console.WriteLine("!!!!!ITEM NÃO EXISTENTE, DIGITE UMA OPÇÃO VÁLIDA!!!!!");
+                    Console.WriteLine("====================================================");
+                }
+
+                if (carrinhoCompras.Count > 0 && opcaoEscolhida.ToString() != null)
                 {
                     Console.WriteLine("Item adicionado ao pedido com sucesso!");
                 }
@@ -96,23 +145,49 @@ namespace PedidoDaLanchonete
                 MostrarCardapio();
                 Console.WriteLine("============================================");
 
-                Console.WriteLine("Escreva o número correspndete ao item que você deseja em seu pedido.");
+                Console.WriteLine("Escreva o número correspodente ao item que você deseja em seu pedido.");
                 Console.WriteLine("[0] - TERMINAR PEDIDO");
 
-                opcaoEscolhida = int.Parse(Console.ReadLine());
+                if (!int.TryParse(Console.ReadLine(), out opcaoEscolhida))
+                {
+                    Console.WriteLine("==============================");
+                    Console.WriteLine("!!!Escreva um número!!!");
+                    Console.WriteLine("==============================");
+                    opcaoEscolhida = 5;
+                    Console.Clear();
+                    continue;
+                }
+
+                if (opcaoEscolhida == 0)
+                {
+                    Thread.Sleep(1000);
+                    Console.Clear();
+                    break;
+                }
 
                 if (opcaoEscolhida >= 1 && opcaoEscolhida <= cardapio.Count)
                 {
                     int indice = opcaoEscolhida - 1;
                     carrinhoCompras.Add(cardapio[indice]);
                 }
+                else
+                    opcaoEscolhida = -2;
 
-                if (opcaoEscolhida == 0)
+
+                if (opcaoEscolhida != -2)
                 {
-                    break;
+                    Thread.Sleep(500);
+                    Console.WriteLine("Processando...");
+                    Thread.Sleep(500);
+                    Console.WriteLine("Adicionando ao carrinho...");
+                    Thread.Sleep(500);
                 }
-                
-                Console.WriteLine("Adicionando ao carrinho...");
+                else
+                {
+                    Thread.Sleep(500);
+                    Console.WriteLine("Processando...");
+                }
+
                 Thread.Sleep(1000);
                 Console.Clear();
             }
@@ -123,6 +198,11 @@ namespace PedidoDaLanchonete
 
                 Pedido novoPedido = new Pedido(numeroPedido, carrinhoCompras);
                 listaDePedidos.Add(novoPedido);
+                Console.WriteLine("==============================");
+                Console.WriteLine("Pedido realizado com sucesso!!");
+                Console.WriteLine("==============================");
+
+                Thread.Sleep(1000);
             }
             else if (carrinhoCompras.Count == 0)
             {
@@ -131,6 +211,8 @@ namespace PedidoDaLanchonete
                 Console.WriteLine("===========================================");
                 Thread.Sleep(1800);
             }
+            Console.Clear();
+
         }
 
         public static void MostrarPedidos()
@@ -150,8 +232,8 @@ namespace PedidoDaLanchonete
                 Console.WriteLine("==================================");
                 Console.WriteLine("");
             }
-                Console.WriteLine("\nClique em qualquer para voltar ao menu.");
-                Console.ReadLine();
+            Console.WriteLine("\nClique em qualquer para voltar ao menu.");
+            Console.ReadLine();
         }
 
         public static decimal SomaTotal(List<Produto> produtos)
@@ -160,7 +242,7 @@ namespace PedidoDaLanchonete
             foreach (Produto item in produtos)
             {
                 decimal precoFormatado = decimal.Parse(item.Preco);
-                totalPedido += precoFormatado; 
+                totalPedido += precoFormatado;
             }
             return totalPedido;
         }
